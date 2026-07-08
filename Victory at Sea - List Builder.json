@@ -2912,7 +2912,7 @@
 						"armorpen": 0,
 						"damagedice": 0,
 						"traits": ["Local 10"]
-					
+					}
 				],
 				"refits":[],
 				"keywords": ["Torpedo Belt 2","Armored Deck","Radar"],
@@ -3008,7 +3008,7 @@
 						"armorpen": 0,
 						"damagedice": 0,
 						"traits": ["Local 12"]
-					
+					}
 				],
 				"refits":[],
 				"keywords": ["Torpedo Belt 2","Armored Deck","Radar"],
@@ -3104,7 +3104,7 @@
 						"armorpen": 0,
 						"damagedice": 0,
 						"traits": ["Local 13"]
-					
+					}
 				],
 				"refits":[],
 				"keywords": ["Torpedo Belt 2","Armored Deck","Radar"],
@@ -3200,7 +3200,7 @@
 						"armorpen": 0,
 						"damagedice": 0,
 						"traits": ["Local 5"]
-					}
+					},
 					{
 						"name": "Forward Mk I Torpedoes",
 						"firearcs": "FWD",
@@ -3308,7 +3308,7 @@
 						"armorpen": 0,
 						"damagedice": 0,
 						"traits": ["Local 10"]
-					}
+					},
 					{
 						"name": "Forward Mk I Torpedoes",
 						"firearcs": "FWD",
@@ -3416,7 +3416,7 @@
 						"armorpen": 0,
 						"damagedice": 0,
 						"traits": ["Local 11"]
-					}
+					},
 					{
 						"name": "Forward Mk I Torpedoes",
 						"firearcs": "FWD",
@@ -3524,7 +3524,7 @@
 						"armorpen": 0,
 						"damagedice": 0,
 						"traits": ["Local 13"]
-					}
+					},
 					{
 						"name": "Forward Mk I Torpedoes",
 						"firearcs": "FWD",
