@@ -1,0 +1,4440 @@
+{
+  "config": 
+	{
+		"trackHighestDivision": false
+	},
+"disallowMultipleFactions": true,
+"appVersion": 2,
+"credit": [
+	"Phy; phyrexian.queen@gmail.com for any questions, thoughts, concerns, or comments!"
+],
+"game": "Victory at Sea",
+"stats": [
+	{
+		"name": "CommissionDate",
+		"abbreviation": "CD"
+	},
+	{
+		"name": "Movement",
+		"abbreviation": "FS",
+		"trail": "\""
+	},
+	{
+		"name": "Armor",
+		"abbreviation": "Ar",
+		"trail": "+"
+	},
+	{
+		"name": "Hull",
+		"abbreviation": "H"
+	},
+	{
+		"name": "Cripple",
+		"abbreviation": "C"
+	},
+	{
+		"name": "CarrierFlight",
+		"abbreviation": "CF"
+	},
+	{
+		"name": "FlightSpeed",
+		"abbreviation": "FS",
+		"trail": "\""
+	},
+	{
+		"name": "DogFight",
+		"abbreviation": "DF"
+	},
+	{
+		"name": "AttackDice",
+		"abbreviation": "AD"
+	},
+	{
+		"name": "ArmorPen",
+		"abbreviation": "AP"
+	},
+	{
+		"name": "DamageDice",
+		"abbreviation": "DD"
+	},
+	{
+		"name": "FireArc",
+		"abbreviation": "ARC"
+	},
+	{
+		"name": "PointBlank",
+		"abbreviation": "PBR",
+		"trail": "\""
+	},
+	{
+		"name": "Short",
+		"abbreviation": "S",
+		"trail": "\""
+	},
+	{
+		"name": "Long",
+		"abbreviation": "L",
+		"trail": "\""
+	},
+	{
+		"name": "Extreme",
+		"abbreviation": "E",
+		"trail": "\""
+	},
+	{
+		"name": "AABattery",
+		"abbreviation": "AAB"
+	},
+	{
+		"name": "Torpedoes",
+		"abbreviation": "T"
+	}
+],
+"toggles": [
+	{
+		"property": "refit",
+		"label": "Include Refit Options in the Listbuilder",
+		"default": false
+    },
+	{
+		"property": "community",
+		"label": "Include Community Rules",
+		"default": false
+    },
+	{
+		"property": "PL",
+		"label": "Include Phyrexian Labs Community Rules",
+		"unlockedBy": "community",
+		"default": false
+    }
+],
+"limits": [],
+"counts": [],
+"calculations": [],
+"additionalPrint": [],
+"elements": [
+	{
+		"propertyName": "factions",
+		"label": "Factions",
+		"type": "faction",
+		"dataSource": "factions",
+		"children": [
+			{
+				"propertyName": "keywords",
+				"label": "Keywords",
+				"type": "static",
+				"dataSource": "keywords"
+			},
+			{
+				"propertyName": "additionalRules",
+				"label": "Additional Rules",
+				"type": "static",
+				"bullet": true
+			},
+			{
+				"propertyName": "ships",
+				"subtitleProperty": "title",
+				"label": "Ships",
+				"type": "main",
+				"dataSource": "ships",
+				"tierProperty": "rank",
+				"tierData": "ranks",
+				"tierFilterChips": true,
+				"groupFactionPreviewByTier": true,
+				"tiers": [
+					{
+						"name": "Battleships",
+						"rank": 1
+					},
+					{
+						"name": "Aircraft Carriers",
+						"rank": 2
+					},
+					{
+						"name": "Cruisers",
+						"rank": 2
+					},
+					{
+						"name": "Destroyers",
+						"rank": 3
+					},
+					{
+						"name": "Submarines",
+						"rank": 4
+					},
+					{
+						"name": "Other Ships",
+						"rank": 10
+					},
+					{
+						"name": "Civilian Ships",
+						"rank": 15
+					}
+				],
+				"children": [
+					{
+						"propertyName": "weapons",
+						"label": "Weapons",
+						"type": "static",
+						"dataSource": "weapons",
+						"stats": [
+						  {
+							"name": "Weapon",
+							"propertyName": "name"
+						  },
+						  {
+							"name": "Point Blank",
+							"propertyName": "pointblank",
+							"definedOnUnit": true,
+							"trail": "\""
+						  },
+						  {
+							"name": "Fire Arcs",
+							"propertyName": "firearcs",
+							"definedOnUnit": true
+						  },
+						  {
+							"name": "Short",
+							"propertyName": "short",
+							"definedOnUnit": true,
+							"trail": "\""
+						  },
+						  {
+							"name": "Long",
+							"propertyName": "long",
+							"definedOnUnit": true,
+							"trail": "\""
+						  },
+						  {
+							"name": "Extreme",
+							"propertyName": "extreme",
+							"definedOnUnit": true,
+							"trail": "\""
+						  },
+						  {
+							"name": "AD",
+							"propertyName": "attackdice",
+							"definedOnUnit": true,
+							"trail": "\""
+						  },
+						  {
+							"name": "AP",
+							"propertyName": "armorpen",
+							"definedOnUnit": true
+						  },
+						  {
+							"name": "DD",
+							"propertyName": "damagedice",
+							"definedOnUnit": true,
+							"trail": "\""
+						  }
+						],
+						"children": [
+							{
+								"propertyName": "traits",
+								"label": "Traits",
+								"type": "static",
+								"dataSource": "keywords"
+							}
+						]
+					}
+				]
+			},
+			{
+				"propertyName": "aircraftType",
+				"label": "Aircraft Type",
+				"type": "main",
+				"dataSource": "aircraftType",
+				"children": [
+					{
+						"propertyName": "aircraft",
+						"dataSource": "aircraft",
+						"showModelCount": true,
+						"allowCollapse": true,
+						"label": "Aircraft",
+						"type": "list",
+						"sortPrioritySeparators": true,
+                        "sortPriorityLabels": {
+                            "1": "Carrier Fighter",
+                            "2": "Carrier Bomber",
+                            "3": "Carrier Dive-Bomber",
+                            "4": "Carrier Torpedo-Bomber",
+                            "5": "Carrier Kamikaze",
+                            "6": "Carrier ASW",
+                            "7": "Ship Based Scout",
+                            "8": "Ground Fighter",
+                            "9": "Ground Bomber",
+                            "10": "Ground Dive-Bomber",
+                            "11": "Ground Torpedo-Bomber",
+                            "12": "Ground Kamikaze",
+                            "13": "Ground ASW"
+                        },
+						"children": [
+							{
+								"propertyName": "weapons",
+								"label": "weapons",
+								"type": "static",
+								"dataSource": "weapons",
+								"children": [
+									{
+										"propertyName": "specialRules",
+										"label": "Special Rules",
+										"type": "static",
+										"dataSource": "keywords"
+									}
+								]
+							},
+							{
+								"propertyName": "equipment",
+								"label": "Equipment",
+								"type": "static",
+								"dataSource": "equipment",
+								"children": [
+									{
+										"propertyName": "specialRules",
+										"label": "Special Rules",
+										"type": "static",
+										"dataSource": "keywords"
+									}
+								]
+							},
+							{
+								"propertyName": "keywords",
+								"label": "Keywords",
+								"type": "static",
+								"dataSource": "keywords"
+							},
+							{
+								"propertyName": "options",
+								"selectedProperty": "chosenOptions",
+								"type": "checkbox",
+								"dataSource": "weapons",
+								"children": [
+									{
+										"label": "Special Rules",
+										"propertyName": "specialRules",
+										"type": "static",
+										"dataSource": "keywords"
+									}
+								]
+							},
+							{
+								"propertyName": "specialRules",
+								"label": "Special Rules",
+								"type": "static",
+								"dataSource": "keywords",
+								"children": [
+									{
+										"label": "Special Rules",
+										"propertyName": "specialRules",
+										"type": "static",
+										"dataSource": "keywords"
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+],
+"data": 
+	{
+		"ranks": [
+			{
+				"name": "Battleships",
+				"rank": 1
+			},
+			{
+				"name": "Aircraft Carriers",
+				"rank": 2
+			},
+			{
+				"name": "Cruisers",
+				"rank": 3
+			},
+			{
+				"name": "Destroyers",
+				"rank": 4
+			},
+			{
+				"name": "Submarines",
+				"rank": 5
+			},
+			{
+				"name": "Other Ships",
+				"rank": 10
+			},
+			{
+				"name": "MTBs",
+				"rank": 11
+			},
+			{
+				"name": "Civilian Ships",
+				"rank": 15
+			}
+		],
+		"factions": [
+			{
+				"name": "Marine Nationale",
+				"additionalRules": []
+			},
+			{
+				"name": "The Kriegsmarine",
+				"additionalRules": [
+					"Radar - When using Rader, you must specify you are using it in the Front, Aft, Port, or Starboard Arc. You may only detec targets in this arc and iwll automatically lose all Detected targets if oyu switch arc; Victory at Sea Rule Book: Pg. 216"
+				]
+			},
+			{
+				"name": "Royal Navy",
+				"additionalRules": [
+					"Depth Charge Attacks - MTBs may use Depth Charge attacks while in base contact with target ship During the Gunnery Phase, roll a D6. On a 6+, attack is successfull. Roll 6 Damage Dice against the enemy ship with AP Score of +1; Victory at Sea Rule Book: Pg. 131",
+					"VT Fuses - Light Guns with the DP Trait, gain VT Fuses. When performing an attack against Aircraft, you may use entire Attack Dice pool instead of half. Cannot be used prior to 1943; Victory at Sea Rule Book: Pg. 131"
+				]
+			},
+			{
+				"name": "Regia Marina",
+				"additionalRules": [
+					"Poor Coordination - If your fleet possesses any Flights of Aircraft other than those launched from carriers, it will suffer a -1 Penalty to its Initiative throughout the battle; Victory at Sea Rule Book: Pg. 259",
+					"Star Shell X - May fire Star Shells in Night Battles: Pg. 259",
+					"Unwilling Soldiers - All ships suffer a -1 Penalty to their Crew Quality Checks; Victory at Sea Rule Book: Pg. 259"
+				]
+			},
+			{
+				"name": "Imperial Japanese Navy",
+				"additionalRules": [
+					"Long Lance - If range to target exceeds 20in, roll a D6 for each torpedo that successfully hits, on a 6+ it hits as Normal, otherwise count it as a miss. May only reload Long Lance torpedoes once per battle; Victory at Sea Rule Book: Pg. 233",
+					"Fan Salvoes - Any ship capable of firing 3 or more Type 93 Attack Dice may launch a single 'Fan Salvo' after fleets have been deployed, but before the battle begins. Roll a D6 for every ship taking part in the fan Salvo, on a 6+ a random Enemy Ship will be hit; Victory at Sea Rule Book: Pg. 233",
+					"Fire Fighting - Each of your ships with a Crew area Critical Score of 2 or more suffers a -1 penalty to all Damage Control Rolls; Victory at Sea Rule Book: Pg. 233"
+				]
+			},
+			{
+				"name": "United States Navy",
+				"additionalRules": [
+					"Torpedoes - For each successful Attack Dice rolled for Torpedoes in Scenarios taking place up to the end of 1943, roll and extra dice. On a 5+, Torpedo Hits as Normal, otherwise count it as a miss; Victory at Sea Rule Book: Pg. 170",
+					"VT Fuses - Light Guns with the DP Trait, gain VT Fuses. When performing an attack against Aircraft, you may use entire Attack Dice pool instead of half. Cannot be used prior to 1943; Victory at Sea Rule Book: Pg. 170"
+				]
+			}
+		],
+		"weapons": [
+			{
+				"name": "A Turret",
+				"firearc": 0,
+				"pointblank": 0,
+				"short": 0,
+				"long": 0,
+				"extreme": 0,
+				"attackdice": 0,
+				"armorpen": 0,
+				"damagedice": 0,
+				"specialText": "-"
+			}
+		],
+		"keywords": [
+			{
+				"name": "---",
+				"definition": "PHY, DON'T FORGET TO ADD THESE"
+			},
+			{
+				"name": "Restricted",
+				"definition": "Whatever restricted does"
+			},
+			{
+				"name": "Weak",
+				"definition": "Whatever weak does"
+			}
+		],
+		"ships": [
+			{
+				"name": "Admiral-Class Battleship",
+				"title": "1920; Ships of this Class: Hood",
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 400,
+				"models": 1,
+				"commissiondate": 1920,
+				"movement": 6,
+				"armor": 5,
+				"hull": 96,
+				"cripple": 32,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 7,
+						"short": 15,
+						"long": 22,
+						"extreme": 30,
+						"attackdice": 2,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 7,
+						"short": 15,
+						"long": 22,
+						"extreme": 30,
+						"attackdice": 2,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "X Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 7,
+						"short": 15,
+						"long": 22,
+						"extreme": 30,
+						"attackdice": 2,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Y Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 7,
+						"short": 15,
+						"long": 22,
+						"extreme": 30,
+						"attackdice": 2,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Light Guns (12 x 5.5in)",
+						"firearcs": "360°",
+						"pointblank": 4,
+						"short": 9,
+						"long": 13,
+						"extreme": 18,
+						"attackdice": 8,
+						"armorpen": -2,
+						"damagedice": 1,
+						"traits": ["Restricted", "Weak"]
+					},
+					{
+						"name": "Light Guns (8 x 4in)",
+						"firearcs": "360°",
+						"pointblank": 5,
+						"short": 10,
+						"long": 15,
+						"extreme": 20,
+						"attackdice": 4,
+						"armorpen": -2,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted", "Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 5"]
+					},
+					{
+						"name": "Port Mk IV Torpedoes",
+						"firearcs": "Port",
+						"pointblank": 2,
+						"short": 5,
+						"long": 15,
+						"extreme": 7,
+						"attackdice": 10,
+						"armorpen": 0,
+						"damagedice": 2,
+						"traits": ["Devastating","Slow Loading"]
+					},
+					{
+						"name": "STBD Mk IV Torpedoes",
+						"firearcs": "STBD",
+						"pointblank": 2,
+						"short": 5,
+						"long": 15,
+						"extreme": 7,
+						"attackdice": 10,
+						"armorpen": 0,
+						"damagedice": 2,
+						"traits": ["Devastating","Slow Loading"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 2"],
+				"specialText": "3 Refits Available for the Hood"
+			},
+			{
+				"name": "Admiral-Class Battleship: Hood (1940)",
+				"title": "Refit 1940",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 375,
+				"models": 1,
+				"commissiondate": 1940,
+				"movement": 6,
+				"armor": 5,
+				"hull": 96,
+				"cripple": 32,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 7,
+						"short": 15,
+						"long": 22,
+						"extreme": 30,
+						"attackdice": 2,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 7,
+						"short": 15,
+						"long": 22,
+						"extreme": 30,
+						"attackdice": 2,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "X Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 7,
+						"short": 15,
+						"long": 22,
+						"extreme": 30,
+						"attackdice": 2,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Y Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 7,
+						"short": 15,
+						"long": 22,
+						"extreme": 30,
+						"attackdice": 2,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Light Guns (14 x 4in)",
+						"firearcs": "360°",
+						"pointblank": 4,
+						"short": 9,
+						"long": 13,
+						"extreme": 18,
+						"attackdice": 7,
+						"armorpen": -2,
+						"damagedice": 1,
+						"traits": ["Restricted", "Weak"]
+					},
+					{
+						"name": "Light Guns (8 x 4in)",
+						"firearcs": "360°",
+						"pointblank": 5,
+						"short": 10,
+						"long": 15,
+						"extreme": 20,
+						"attackdice": 4,
+						"armorpen": -2,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted", "Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 5"]
+					},
+					{
+						"name": "Port Mk IV Torpedoes",
+						"firearcs": "Port",
+						"pointblank": 2,
+						"short": 5,
+						"long": 15,
+						"extreme": 7,
+						"attackdice": 10,
+						"armorpen": 0,
+						"damagedice": 2,
+						"traits": ["Devastating","Slow Loading"]
+					},
+					{
+						"name": "STBD Mk IV Torpedoes",
+						"firearcs": "STBD",
+						"pointblank": 2,
+						"short": 5,
+						"long": 15,
+						"extreme": 7,
+						"attackdice": 10,
+						"armorpen": 0,
+						"damagedice": 2,
+						"traits": ["Devastating","Slow Loading"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 2"],
+				"specialText": ""
+			},
+			{
+				"name": "Admiral-Class Battleship: Hood (1941)",
+				"title": "Refit 1941",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 435,
+				"models": 1,
+				"commissiondate": 1941,
+				"movement": 6,
+				"armor": 5,
+				"hull": 96,
+				"cripple": 32,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 7,
+						"short": 15,
+						"long": 22,
+						"extreme": 30,
+						"attackdice": 2,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 7,
+						"short": 15,
+						"long": 22,
+						"extreme": 30,
+						"attackdice": 2,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "X Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 7,
+						"short": 15,
+						"long": 22,
+						"extreme": 30,
+						"attackdice": 2,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Y Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 7,
+						"short": 15,
+						"long": 22,
+						"extreme": 30,
+						"attackdice": 2,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Light Guns (14 x 4in)",
+						"firearcs": "360°",
+						"pointblank": 4,
+						"short": 9,
+						"long": 13,
+						"extreme": 18,
+						"attackdice": 7,
+						"armorpen": -2,
+						"damagedice": 1,
+						"traits": ["Restricted", "Weak"]
+					},
+					{
+						"name": "Light Guns (8 x 4in)",
+						"firearcs": "360°",
+						"pointblank": 5,
+						"short": 10,
+						"long": 15,
+						"extreme": 20,
+						"attackdice": 4,
+						"armorpen": -2,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted", "Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 5"]
+					},
+					{
+						"name": "Port Mk IV Torpedoes",
+						"firearcs": "Port",
+						"pointblank": 2,
+						"short": 5,
+						"long": 15,
+						"extreme": 7,
+						"attackdice": 10,
+						"armorpen": 0,
+						"damagedice": 2,
+						"traits": ["Devastating","Slow Loading"]
+					},
+					{
+						"name": "STBD Mk IV Torpedoes",
+						"firearcs": "STBD",
+						"pointblank": 2,
+						"short": 5,
+						"long": 15,
+						"extreme": 7,
+						"attackdice": 10,
+						"armorpen": 0,
+						"damagedice": 2,
+						"traits": ["Devastating","Slow Loading"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 2","Radar"],
+				"specialText": ""
+			},
+			{
+				"name": "Admiral-Class Battleship: Hood (1942)",
+				"title": "Refit 1942",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 685,
+				"models": 1,
+				"commissiondate": 1942,
+				"movement": 6,
+				"armor": 5,
+				"hull": 96,
+				"cripple": 32,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 7,
+						"short": 15,
+						"long": 22,
+						"extreme": 30,
+						"attackdice": 2,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 7,
+						"short": 15,
+						"long": 22,
+						"extreme": 30,
+						"attackdice": 2,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "X Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 7,
+						"short": 15,
+						"long": 22,
+						"extreme": 30,
+						"attackdice": 2,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Y Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 7,
+						"short": 15,
+						"long": 22,
+						"extreme": 30,
+						"attackdice": 2,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Light Guns (16 x 5.25in)",
+						"firearcs": "360°",
+						"pointblank": 5,
+						"short": 11,
+						"long": 17,
+						"extreme": 23,
+						"attackdice": 8,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted", "Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 10"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 2","Radar","Aircraft (2)"],
+				"specialText": ""
+			},
+			{
+				"name": "King George V-Class Battleship",
+				"title": "1940; Ships of this Class: Anson, Duke of York, Howe, King George V, Prince of Wales",
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 600,
+				"models": 1,
+				"commissiondate": 1940,
+				"movement": 5,
+				"armor": 7,
+				"hull": 89,
+				"cripple": 29,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Y Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Light Guns (16 x 5.25in)",
+						"firearcs": "360°",
+						"pointblank": 5,
+						"short": 11,
+						"long": 17,
+						"extreme": 23,
+						"attackdice": 10,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted", "Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 6"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 3","Aircraft 2","Armored Deck","Radar"],
+				"specialText": "4 Refits Available for the Anson\n 4 Refits Available for the Duke of York\n 3 Refits Available for the King George V\n 4 Refits Available for the Howe\n 1 Refit Available for the Prince of Wales"
+			},
+			{
+				"name": "King George V-Class Battleship: Anson (1942)",
+				"title": "Refit 1942",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 620,
+				"models": 1,
+				"commissiondate": 1942,
+				"movement": 5,
+				"armor": 7,
+				"hull": 89,
+				"cripple": 29,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Y Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Light Guns (16 x 5.25in)",
+						"firearcs": "360°",
+						"pointblank": 5,
+						"short": 11,
+						"long": 17,
+						"extreme": 23,
+						"attackdice": 10,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted", "Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 10"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 3","Aircraft 2","Armored Deck","Radar"],
+				"specialText": ""
+			},
+			{
+				"name": "King George V-Class Battleship: Anson (1943)",
+				"title": "Refit 1943",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 630,
+				"models": 1,
+				"commissiondate": 1943,
+				"movement": 5,
+				"armor": 7,
+				"hull": 89,
+				"cripple": 29,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Y Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Light Guns (16 x 5.25in)",
+						"firearcs": "360°",
+						"pointblank": 5,
+						"short": 11,
+						"long": 17,
+						"extreme": 23,
+						"attackdice": 10,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted", "Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 12"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 3","Aircraft 2","Armored Deck","Radar"],
+				"specialText": ""
+			},
+			{
+				"name": "King George V-Class Battleship: Anson (1943)",
+				"title": "Refit 1943",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 650,
+				"models": 1,
+				"commissiondate": 1943,
+				"movement": 5,
+				"armor": 7,
+				"hull": 89,
+				"cripple": 29,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Y Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Light Guns (16 x 5.25in)",
+						"firearcs": "360°",
+						"pointblank": 5,
+						"short": 11,
+						"long": 17,
+						"extreme": 23,
+						"attackdice": 10,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted", "Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 12"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 3","Aircraft 2","Armored Deck","Radar","Sub-Hunter"],
+				"specialText": ""
+			},
+			{
+				"name": "King George V-Class Battleship: Anson (1945)",
+				"title": "Refit 1945",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 755,
+				"models": 1,
+				"commissiondate": 1945,
+				"movement": 5,
+				"armor": 7,
+				"hull": 89,
+				"cripple": 29,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Y Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Light Guns (16 x 5.25in)",
+						"firearcs": "360°",
+						"pointblank": 5,
+						"short": 11,
+						"long": 17,
+						"extreme": 23,
+						"attackdice": 10,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted", "Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 1,
+						"short": 2,
+						"long": 3,
+						"extreme": 5,
+						"attackdice": 2,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 20"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 3","Armored Deck","Radar","Sub-Hunter"],
+				"specialText": ""
+			},
+			{
+				"name": "King George V-Class Battleship: Duke of York (1941)",
+				"title": "Refit 1941",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 620,
+				"models": 1,
+				"commissiondate": 1941,
+				"movement": 5,
+				"armor": 7,
+				"hull": 89,
+				"cripple": 29,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Y Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Light Guns (16 x 5.25in)",
+						"firearcs": "360°",
+						"pointblank": 5,
+						"short": 11,
+						"long": 17,
+						"extreme": 23,
+						"attackdice": 10,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted", "Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 10"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 3","Aircraft 2","Armored Deck","Radar"],
+				"specialText": ""
+			},
+			{
+				"name": "King George V-Class Battleship: Duke of York (1943)",
+				"title": "Refit 1943",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 625,
+				"models": 1,
+				"commissiondate": 1943,
+				"movement": 5,
+				"armor": 7,
+				"hull": 89,
+				"cripple": 29,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Y Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Light Guns (16 x 5.25in)",
+						"firearcs": "360°",
+						"pointblank": 5,
+						"short": 11,
+						"long": 17,
+						"extreme": 23,
+						"attackdice": 10,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted", "Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 11"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 3","Aircraft 2","Armored Deck","Radar"],
+				"specialText": ""
+			},
+			{
+				"name": "King George V-Class Battleship: Duke of York (1944)",
+				"title": "Refit 1944",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 645,
+				"models": 1,
+				"commissiondate": 1940,
+				"movement": 5,
+				"armor": 7,
+				"hull": 89,
+				"cripple": 29,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Y Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Light Guns (16 x 5.25in)",
+						"firearcs": "360°",
+						"pointblank": 5,
+						"short": 11,
+						"long": 17,
+						"extreme": 23,
+						"attackdice": 10,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted", "Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 11"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 3","Aircraft 2","Armored Deck","Radar","Sub-Hunter"],
+				"specialText": ""
+			},
+			{
+				"name": "King George V-Class Battleship: Duke of York (1945)",
+				"title": "Refit 1945",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 750,
+				"models": 1,
+				"commissiondate": 1945,
+				"movement": 5,
+				"armor": 7,
+				"hull": 89,
+				"cripple": 29,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Y Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Light Guns (16 x 5.25in)",
+						"firearcs": "360°",
+						"pointblank": 5,
+						"short": 11,
+						"long": 17,
+						"extreme": 23,
+						"attackdice": 10,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted", "Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 1,
+						"short": 2,
+						"long": 3,
+						"extreme": 4,
+						"attackdice": 2,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 21"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 3","Armored Deck","Advanced Radar","Sub-Hunter"],
+				"specialText": ""
+			},
+			{
+				"name": "King George V-Class Battleship: King George V (1942)",
+				"title": "Refit 1942",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 620,
+				"models": 1,
+				"commissiondate": 1942,
+				"movement": 5,
+				"armor": 7,
+				"hull": 89,
+				"cripple": 29,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Y Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Light Guns (16 x 5.25in)",
+						"firearcs": "360°",
+						"pointblank": 5,
+						"short": 11,
+						"long": 17,
+						"extreme": 23,
+						"attackdice": 10,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted", "Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 10"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 3","Aircraft 2","Armored Deck","Radar"],
+				"specialText": ""
+			},
+			{
+				"name": "King George V-Class Battleship: King George V (1943)",
+				"title": "Refit 1943",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 625,
+				"models": 1,
+				"commissiondate": 1943,
+				"movement": 5,
+				"armor": 7,
+				"hull": 89,
+				"cripple": 29,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Y Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Light Guns (16 x 5.25in)",
+						"firearcs": "360°",
+						"pointblank": 5,
+						"short": 11,
+						"long": 17,
+						"extreme": 23,
+						"attackdice": 10,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted", "Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 11"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 3","Aircraft 2","Armored Deck","Radar"],
+				"specialText": ""
+			},
+			{
+				"name": "King George V-Class Battleship: King George V (1944)",
+				"title": "Refit 1944",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 725,
+				"models": 1,
+				"commissiondate": 1944,
+				"movement": 5,
+				"armor": 7,
+				"hull": 89,
+				"cripple": 29,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Y Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Light Guns (16 x 5.25in)",
+						"firearcs": "360°",
+						"pointblank": 5,
+						"short": 11,
+						"long": 17,
+						"extreme": 23,
+						"attackdice": 10,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted", "Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 1,
+						"short": 2,
+						"long": 3,
+						"extreme": 5,
+						"attackdice": 2,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 15"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 3","Armored Deck","Radar"],
+				"specialText": ""
+			},
+			{
+				"name": "King George V-Class Battleship: Howe (1942)",
+				"title": "Refit 1942",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 620,
+				"models": 1,
+				"commissiondate": 1942,
+				"movement": 5,
+				"armor": 7,
+				"hull": 89,
+				"cripple": 29,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Y Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Light Guns (16 x 5.25in)",
+						"firearcs": "360°",
+						"pointblank": 5,
+						"short": 11,
+						"long": 17,
+						"extreme": 23,
+						"attackdice": 10,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted", "Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 10"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 3","Aircraft 2","Armored Deck","Radar"],
+				"specialText": ""
+			},
+			{
+				"name": "King George V-Class Battleship: Howe (1943)",
+				"title": "Refit 1943",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 625,
+				"models": 1,
+				"commissiondate": 1943,
+				"movement": 5,
+				"armor": 7,
+				"hull": 89,
+				"cripple": 29,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Y Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Light Guns (16 x 5.25in)",
+						"firearcs": "360°",
+						"pointblank": 5,
+						"short": 11,
+						"long": 17,
+						"extreme": 23,
+						"attackdice": 10,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted", "Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 11"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 3","Aircraft 2","Armored Deck","Radar"],
+				"specialText": ""
+			},
+			{
+				"name": "King George V-Class Battleship: Howe (1944)",
+				"title": "Refit 1944",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 725,
+				"models": 1,
+				"commissiondate": 1944,
+				"movement": 5,
+				"armor": 7,
+				"hull": 89,
+				"cripple": 29,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Y Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Light Guns (16 x 5.25in)",
+						"firearcs": "360°",
+						"pointblank": 5,
+						"short": 11,
+						"long": 17,
+						"extreme": 23,
+						"attackdice": 10,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted", "Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 1,
+						"short": 2,
+						"long": 3,
+						"extreme": 5,
+						"attackdice": 2,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 15"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 3","Armored Deck","Radar"],
+				"specialText": ""
+			},
+			{
+				"name": "King George V-Class Battleship: Howe (1945)",
+				"title": "Refit 1945",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 755,
+				"models": 1,
+				"commissiondate": 1945,
+				"movement": 5,
+				"armor": 7,
+				"hull": 89,
+				"cripple": 29,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Y Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Light Guns (16 x 5.25in)",
+						"firearcs": "360°",
+						"pointblank": 5,
+						"short": 11,
+						"long": 17,
+						"extreme": 23,
+						"attackdice": 10,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted", "Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 1,
+						"short": 2,
+						"long": 3,
+						"extreme": 5,
+						"attackdice": 5,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 18"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 3","Armored Deck","Radar"],
+				"specialText": ""
+			},
+			{
+				"name": "King George V-Class Battleship: Prince of Wales (1941)",
+				"title": "Refit 1941",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 625,
+				"models": 1,
+				"commissiondate": 1941,
+				"movement": 5,
+				"armor": 7,
+				"hull": 89,
+				"cripple": 29,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Y Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 4,
+						"armorpen": 2,
+						"damagedice": 3
+					},
+					{
+						"name": "Light Guns (16 x 5.25in)",
+						"firearcs": "360°",
+						"pointblank": 5,
+						"short": 11,
+						"long": 17,
+						"extreme": 23,
+						"attackdice": 10,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted", "Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 1,
+						"short": 2,
+						"long": 3,
+						"extreme": 5,
+						"attackdice": 1,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 10"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 3","Aircraft 2","Armored Deck","Radar"],
+				"specialText": ""
+			},
+			{
+				"name": "Lion-Class Battleship",
+				"title": "NC; Ships of this Class: Lion, Temeraire, Conqueror, Thunderer",
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 900,
+				"models": 1,
+				"commissiondate": "NC",
+				"movement": 6,
+				"armor": 7,
+				"hull": 93,
+				"cripple": 31,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 10,
+						"short": 20,
+						"long": 30,
+						"extreme": 41,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": ["Heavy"]
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 10,
+						"short": 20,
+						"long": 30,
+						"extreme": 41,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": ["Heavy"]
+					},
+					{
+						"name": "X Turret",
+						"firearcs": "P|A|S",
+						"pointblank": 10,
+						"short": 20,
+						"long": 30,
+						"extreme": 41,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": ["Heavy"]
+					},
+					{
+						"name": "Light Guns (16 x 5.25in)",
+						"firearcs": "360°",
+						"pointblank": 5,
+						"short": 11,
+						"long": 17,
+						"extreme": 23,
+						"attackdice": 8,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted", "Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 9"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 3","Aircraft 3","Armored Deck","Advanced Radar"],
+				"specialText": "No Refits Available."
+			},
+			{
+				"name": "N3-Class Battleship",
+				"title": "NC; Ships of this Class: St. George, St. David, St. Andrew, St. Patrick",
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 950,
+				"models": 1,
+				"commissiondate": "NC",
+				"movement": 5,
+				"armor": 7,
+				"hull": 108,
+				"cripple": 36,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 11,
+						"short": 22,
+						"long": 33,
+						"extreme": 44,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 4,
+						"traits": ["Heavy"]
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 11,
+						"short": 22,
+						"long": 33,
+						"extreme": 44,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 4,
+						"traits": ["Heavy"]
+					},
+					{
+						"name": "Q Turret",
+						"firearcs": "P|-|S",
+						"pointblank": 11,
+						"short": 22,
+						"long": 33,
+						"extreme": 44,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 4,
+						"traits": ["Heavy"]
+					},
+					{
+						"name": "Light Guns (16 x 6in)",
+						"firearcs": "360°",
+						"pointblank": 6,
+						"short": 13,
+						"long": 19,
+						"extreme": 26,
+						"attackdice": 8,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Restricted","Twin Linked"]
+					},
+					{
+						"name": "Light Guns (6 x 4.7in)",
+						"firearcs": "360°",
+						"pointblank": 4,
+						"short": 8,
+						"long": 12,
+						"extreme": 16,
+						"attackdice": 4,
+						"armorpen": -2,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted","Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 8"]
+					},
+					{
+						"name": "Port Mk I Torpedoes",
+						"firearcs": "Port",
+						"pointblank": 4,
+						"short": 9,
+						"long": 13,
+						"extreme": 18,
+						"attackdice": 1,
+						"armorpen": 0,
+						"damagedice": 3,
+						"traits": ["Devestating","Slow Loading"]
+					},
+					{
+						"name": "STBD Mk I Torpedoes",
+						"firearcs": "STBD",
+						"pointblank": 4,
+						"short": 9,
+						"long": 13,
+						"extreme": 18,
+						"attackdice": 1,
+						"armorpen": 0,
+						"damagedice": 3,
+						"traits": ["Devestating","Slow Loading"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 2","Lumbering","Armored Deck"],
+				"specialText": "No Refits Available."
+			},
+			{
+				"name": "Nelson-Class Battleship",
+				"title": "1927; Ships of this Class: Nelson, Rodney",
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 600,
+				"models": 1,
+				"commissiondate": 1927,
+				"movement": 5,
+				"armor": 7,
+				"hull": 83,
+				"cripple": 27,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "Q Turret",
+						"firearcs": "P|-|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "Light Guns (12 x 6in)",
+						"firearcs": "360°",
+						"pointblank": 6,
+						"short": 13,
+						"long": 19,
+						"extreme": 26,
+						"attackdice": 6,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Restricted","Twin Linked"]
+					},
+					{
+						"name": "Light Guns (6 x 4.7in)",
+						"firearcs": "360°",
+						"pointblank": 4,
+						"short": 8,
+						"long": 12,
+						"extreme": 16,
+						"attackdice": 3,
+						"armorpen": -2,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted","Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 3"]
+					},
+					{
+						"name": "Forward Mk I Torpedoes",
+						"firearcs": "FWD",
+						"pointblank": 4,
+						"short": 9,
+						"long": 13,
+						"extreme": 18,
+						"attackdice": 2,
+						"armorpen": 0,
+						"damagedice": 3,
+						"traits": ["Devestating","Slow Loading"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 2","Armored Deck"],
+				"specialText": "5 Refits Available for Nelson\n 4 Refits Available for Rodney"
+			},
+			{
+				"name": "Nelson-Class Battleship: Nelson (1940)",
+				"commissiondate": 1940,
+				"title": "Refit 1940",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 625,
+				"models": 1,
+				"movement": 5,
+				"armor": 7,
+				"hull": 83,
+				"cripple": 27,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "Q Turret",
+						"firearcs": "P|-|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "Light Guns (12 x 6in)",
+						"firearcs": "360°",
+						"pointblank": 6,
+						"short": 13,
+						"long": 19,
+						"extreme": 26,
+						"attackdice": 6,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Restricted","Twin Linked"]
+					},
+					{
+						"name": "Light Guns (6 x 4.7in)",
+						"firearcs": "360°",
+						"pointblank": 4,
+						"short": 8,
+						"long": 12,
+						"extreme": 16,
+						"attackdice": 3,
+						"armorpen": -2,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted","Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 8"]
+					},
+					{
+						"name": "Forward Mk I Torpedoes",
+						"firearcs": "FWD",
+						"pointblank": 4,
+						"short": 9,
+						"long": 13,
+						"extreme": 18,
+						"attackdice": 2,
+						"armorpen": 0,
+						"damagedice": 3,
+						"traits": ["Devestating","Slow Loading"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 2","Armored Deck"],
+				"specialText": ""
+			},
+			{
+				"name": "Nelson-Class Battleship: Nelson (1941)",
+				"commissiondate": 1941,
+				"title": "Refit 1941",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 685,
+				"models": 1,
+				"movement": 5,
+				"armor": 7,
+				"hull": 83,
+				"cripple": 27,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "Q Turret",
+						"firearcs": "P|-|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "Light Guns (12 x 6in)",
+						"firearcs": "360°",
+						"pointblank": 6,
+						"short": 13,
+						"long": 19,
+						"extreme": 26,
+						"attackdice": 6,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Restricted","Twin Linked"]
+					},
+					{
+						"name": "Light Guns (6 x 4.7in)",
+						"firearcs": "360°",
+						"pointblank": 4,
+						"short": 8,
+						"long": 12,
+						"extreme": 16,
+						"attackdice": 3,
+						"armorpen": -2,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted","Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 8"]
+					},
+					{
+						"name": "Forward Mk I Torpedoes",
+						"firearcs": "FWD",
+						"pointblank": 4,
+						"short": 9,
+						"long": 13,
+						"extreme": 18,
+						"attackdice": 2,
+						"armorpen": 0,
+						"damagedice": 3,
+						"traits": ["Devestating","Slow Loading"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 2","Armored Deck","Radar"],
+				"specialText": ""
+			},
+			{
+				"name": "Nelson-Class Battleship: Nelson (1942)",
+				"commissiondate": 1942,
+				"title": "Refit 1942",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 685,
+				"models": 1,
+				"movement": 5,
+				"armor": 7,
+				"hull": 83,
+				"cripple": 27,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "Q Turret",
+						"firearcs": "P|-|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "Light Guns (12 x 6in)",
+						"firearcs": "360°",
+						"pointblank": 6,
+						"short": 13,
+						"long": 19,
+						"extreme": 26,
+						"attackdice": 6,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Restricted","Twin Linked"]
+					},
+					{
+						"name": "Light Guns (6 x 4.7in)",
+						"firearcs": "360°",
+						"pointblank": 4,
+						"short": 8,
+						"long": 12,
+						"extreme": 16,
+						"attackdice": 3,
+						"armorpen": -2,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted","Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 10"]
+					
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 2","Armored Deck","Radar"],
+				"specialText": ""
+			},
+			{
+				"name": "Nelson-Class Battleship: Nelson (1943)",
+				"commissiondate": 1943,
+				"title": "Refit 1943",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 695,
+				"models": 1,
+				"movement": 5,
+				"armor": 7,
+				"hull": 83,
+				"cripple": 27,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "Q Turret",
+						"firearcs": "P|-|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "Light Guns (12 x 6in)",
+						"firearcs": "360°",
+						"pointblank": 6,
+						"short": 13,
+						"long": 19,
+						"extreme": 26,
+						"attackdice": 6,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Restricted","Twin Linked"]
+					},
+					{
+						"name": "Light Guns (6 x 4.7in)",
+						"firearcs": "360°",
+						"pointblank": 4,
+						"short": 8,
+						"long": 12,
+						"extreme": 16,
+						"attackdice": 3,
+						"armorpen": -2,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted","Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 12"]
+					
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 2","Armored Deck","Radar"],
+				"specialText": ""
+			},
+			{
+				"name": "Nelson-Class Battleship: Nelson (1945)",
+				"commissiondate": 1945,
+				"title": "Refit 1945",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 715,
+				"models": 1,
+				"movement": 5,
+				"armor": 7,
+				"hull": 83,
+				"cripple": 27,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "Q Turret",
+						"firearcs": "P|-|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "Light Guns (12 x 6in)",
+						"firearcs": "360°",
+						"pointblank": 6,
+						"short": 13,
+						"long": 19,
+						"extreme": 26,
+						"attackdice": 6,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Restricted","Twin Linked"]
+					},
+					{
+						"name": "Light Guns (6 x 4.7in)",
+						"firearcs": "360°",
+						"pointblank": 4,
+						"short": 8,
+						"long": 12,
+						"extreme": 16,
+						"attackdice": 3,
+						"armorpen": -2,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted","Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 1,
+						"short": 2,
+						"long": 3,
+						"extreme": 5,
+						"attackdice": 3,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 13"]
+					
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 2","Armored Deck","Radar"],
+				"specialText": ""
+			},
+			{
+				"name": "Nelson-Class Battleship: Rodney (1939)",
+				"commissiondate": 1939,
+				"title": "Refit 1939",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 610,
+				"models": 1,
+				"movement": 5,
+				"armor": 7,
+				"hull": 83,
+				"cripple": 27,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "Q Turret",
+						"firearcs": "P|-|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "Light Guns (12 x 6in)",
+						"firearcs": "360°",
+						"pointblank": 6,
+						"short": 13,
+						"long": 19,
+						"extreme": 26,
+						"attackdice": 6,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Restricted","Twin Linked"]
+					},
+					{
+						"name": "Light Guns (6 x 4.7in)",
+						"firearcs": "360°",
+						"pointblank": 4,
+						"short": 8,
+						"long": 12,
+						"extreme": 16,
+						"attackdice": 3,
+						"armorpen": -2,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted","Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 5"]
+					}
+					{
+						"name": "Forward Mk I Torpedoes",
+						"firearcs": "FWD",
+						"pointblank": 4,
+						"short": 9,
+						"long": 13,
+						"extreme": 18,
+						"attackdice": 2,
+						"armorpen": 0,
+						"damagedice": 3,
+						"traits": ["Devestating","Slow Loading"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 2","Armored Deck"],
+				"specialText": ""
+			},
+			{
+				"name": "Nelson-Class Battleship: Rodney (1941)",
+				"commissiondate": 1941,
+				"title": "Refit 1941",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 635,
+				"models": 1,
+				"movement": 5,
+				"armor": 7,
+				"hull": 83,
+				"cripple": 27,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "Q Turret",
+						"firearcs": "P|-|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "Light Guns (12 x 6in)",
+						"firearcs": "360°",
+						"pointblank": 6,
+						"short": 13,
+						"long": 19,
+						"extreme": 26,
+						"attackdice": 6,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Restricted","Twin Linked"]
+					},
+					{
+						"name": "Light Guns (6 x 4.7in)",
+						"firearcs": "360°",
+						"pointblank": 4,
+						"short": 8,
+						"long": 12,
+						"extreme": 16,
+						"attackdice": 3,
+						"armorpen": -2,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted","Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 10"]
+					}
+					{
+						"name": "Forward Mk I Torpedoes",
+						"firearcs": "FWD",
+						"pointblank": 4,
+						"short": 9,
+						"long": 13,
+						"extreme": 18,
+						"attackdice": 2,
+						"armorpen": 0,
+						"damagedice": 3,
+						"traits": ["Devestating","Slow Loading"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 2","Armored Deck"],
+				"specialText": ""
+			},
+			{
+				"name": "Nelson-Class Battleship: Rodney (1942)",
+				"commissiondate": 1942,
+				"title": "Refit 1942",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 700,
+				"models": 1,
+				"movement": 5,
+				"armor": 7,
+				"hull": 83,
+				"cripple": 27,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "Q Turret",
+						"firearcs": "P|-|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "Light Guns (12 x 6in)",
+						"firearcs": "360°",
+						"pointblank": 6,
+						"short": 13,
+						"long": 19,
+						"extreme": 26,
+						"attackdice": 6,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Restricted","Twin Linked"]
+					},
+					{
+						"name": "Light Guns (6 x 4.7in)",
+						"firearcs": "360°",
+						"pointblank": 4,
+						"short": 8,
+						"long": 12,
+						"extreme": 16,
+						"attackdice": 3,
+						"armorpen": -2,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted","Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 11"]
+					}
+					{
+						"name": "Forward Mk I Torpedoes",
+						"firearcs": "FWD",
+						"pointblank": 4,
+						"short": 9,
+						"long": 13,
+						"extreme": 18,
+						"attackdice": 2,
+						"armorpen": 0,
+						"damagedice": 3,
+						"traits": ["Devestating","Slow Loading"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 2","Armored Deck","Radar"],
+				"specialText": ""
+			},
+			{
+				"name": "Nelson-Class Battleship: Rodney (1943)",
+				"commissiondate": 1943,
+				"title": "Refit 1943",
+				"refit": true,
+				"unlimited": true,
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 1
+					}
+				],
+				"points": 710,
+				"models": 1,
+				"movement": 5,
+				"armor": 7,
+				"hull": 83,
+				"cripple": 27,
+				"weapons": [
+					{
+						"name": "A Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "B Turret",
+						"firearcs": "P|F|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "Q Turret",
+						"firearcs": "P|-|S",
+						"pointblank": 9,
+						"short": 19,
+						"long": 29,
+						"extreme": 39,
+						"attackdice": 3,
+						"armorpen": 2,
+						"damagedice": 3,
+						"traits": []
+					},
+					{
+						"name": "Light Guns (12 x 6in)",
+						"firearcs": "360°",
+						"pointblank": 6,
+						"short": 13,
+						"long": 19,
+						"extreme": 26,
+						"attackdice": 6,
+						"armorpen": -1,
+						"damagedice": 1,
+						"traits": ["Restricted","Twin Linked"]
+					},
+					{
+						"name": "Light Guns (6 x 4.7in)",
+						"firearcs": "360°",
+						"pointblank": 4,
+						"short": 8,
+						"long": 12,
+						"extreme": 16,
+						"attackdice": 3,
+						"armorpen": -2,
+						"damagedice": 1,
+						"traits": ["Dual Purpose","Restricted","Weak"]
+					},
+					{
+						"name": "AA Battery",
+						"firearcs": "360°",
+						"pointblank": 0,
+						"short": 0,
+						"long": 0,
+						"extreme": 0,
+						"attackdice": 0,
+						"armorpen": 0,
+						"damagedice": 0,
+						"traits": ["Local 13"]
+					}
+					{
+						"name": "Forward Mk I Torpedoes",
+						"firearcs": "FWD",
+						"pointblank": 4,
+						"short": 9,
+						"long": 13,
+						"extreme": 18,
+						"attackdice": 2,
+						"armorpen": 0,
+						"damagedice": 3,
+						"traits": ["Devestating","Slow Loading"]
+					}
+				],
+				"refits":[],
+				"keywords": ["Torpedo Belt 2","Armored Deck","Radar"],
+				"specialText": ""
+			},
+			{
+				"name": "BPB '60 MTB",
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 11
+					}
+				],
+				"options": [],
+				"points": 20,
+				"models": 1,
+				"commissiondate": 1936,
+				"movement": 6,
+				"armor": 5,
+				"aabattery": 1,
+				"torpedoes": 2,
+				"sortPriority": 1,
+				"keywords": ["Smoke"],
+				"specialText": "",
+				"weapons": ["Royal Navy Depth Charges"]
+			},
+			{
+				"name": "Denny SGB (1942)",
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 11
+					}
+				],
+				"options": [],
+				"points": 20,
+				"models": 1,
+				"commissiondate": 1942,
+				"movement": 7,
+				"armor": 2,
+				"aabattery": 1,
+				"torpedoes": 2,
+				"sortPriority": 1,
+				"keywords": ["Smoke"],
+				"specialText": "",
+				"weapons": [""]
+			},
+			{
+				"name": "Denny SGB (1943)",
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 11
+					}
+				],
+				"options": [],
+				"points": 20,
+				"models": 1,
+				"commissiondate": 1943,
+				"movement": 6,
+				"armor": 3,
+				"aabattery": 2,
+				"torpedoes": 2,
+				"sortPriority": 1,
+				"keywords": ["Smoke"],
+				"specialText": "",
+				"weapons": ["Light Guns"]
+			},
+			{
+				"name": "Elco '77 MTB",
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 11
+					}
+				],
+				"options": [],
+				"points": 20,
+				"models": 1,
+				"commissiondate": 1942,
+				"movement": 8,
+				"armor": 3,
+				"aabattery": 1,
+				"torpedoes": 2,
+				"sortPriority": 1,
+				"keywords": ["Smoke"],
+				"specialText": "",
+				"weapons": ["Royal Navy Depth Charge"]
+			},
+			{
+				"name": "Fairmile A ML",
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 11
+					}
+				],
+				"options": [],
+				"points": 20,
+				"models": 1,
+				"commissiondate": 1940,
+				"movement": 5,
+				"armor": 3,
+				"aabattery": 1,
+				"torpedoes": 0,
+				"sortPriority": 1,
+				"keywords": [""],
+				"specialText": "",
+				"weapons": ["Depth Charge"]
+			},
+			{
+				"name": "Fairmile B ML",
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 11
+					}
+				],
+				"options": [],
+				"points": 20,
+				"models": 1,
+				"commissiondate": 1940,
+				"movement": 4,
+				"armor": 3,
+				"aabattery": 1,
+				"torpedoes": 0,
+				"sortPriority": 1,
+				"keywords": [""],
+				"specialText": "",
+				"weapons": ["Depth Charge"]
+			},
+			{
+				"name": "Fairmile C MGB (1941)",
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 11
+					}
+				],
+				"options": [],
+				"points": 20,
+				"models": 1,
+				"commissiondate": 1941,
+				"movement": 5,
+				"armor": 3,
+				"aabattery": 1,
+				"torpedoes": 0,
+				"sortPriority": 1,
+				"keywords": ["Smoke"],
+				"specialText": "",
+				"weapons": ["Royal Navy Depth Charge"]
+			},
+			{
+				"name": "Fairmile C MGB (1944)",
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 11
+					}
+				],
+				"options": [],
+				"points": 20,
+				"models": 1,
+				"commissiondate": 1944,
+				"movement": 5,
+				"armor": 3,
+				"aabattery": 2,
+				"torpedoes": 0,
+				"sortPriority": 1,
+				"keywords": ["Smoke"],
+				"specialText": "",
+				"weapons": ["Royal Navy Depth Charge"]
+			},
+			{
+				"name": "Fairmile D MTB",
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 11
+					}
+				],
+				"options": [],
+				"points": 20,
+				"models": 1,
+				"commissiondate": 1943,
+				"movement": 6,
+				"armor": 3,
+				"aabattery": 1,
+				"torpedoes": 2,
+				"sortPriority": 1,
+				"keywords": ["Smoke"],
+				"specialText": "",
+				"weapons": ["Royal Navy Depth Charge","Light Guns"]
+			},
+			{
+				"name": "Thornycroft '75 MTB",
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 11
+					}
+				],
+				"options": [],
+				"points": 20,
+				"models": 1,
+				"commissiondate": 1943,
+				"movement": 5,
+				"armor": 3,
+				"aabattery": 1,
+				"torpedoes": 2,
+				"sortPriority": 1,
+				"keywords": ["Smoke"],
+				"specialText": "",
+				"weapons": ["Royal Navy Depth Charge"]
+			},
+			{
+				"name": "Vosper '73 MTB",
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 11
+					}
+				],
+				"options": [],
+				"points": 20,
+				"models": 1,
+				"commissiondate": 1939,
+				"movement": 5,
+				"armor": 3,
+				"aabattery": 1,
+				"torpedoes": 2,
+				"sortPriority": 1,
+				"keywords": ["Smoke"],
+				"specialText": "",
+				"weapons": ["Depth Charge"]
+			},
+			{
+				"name": "Vosper Type 1 MTB",
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 11
+					}
+				],
+				"options": [],
+				"points": 20,
+				"models": 1,
+				"commissiondate": 1943,
+				"movement": 7,
+				"armor": 4,
+				"aabattery": 1,
+				"torpedoes": 4,
+				"sortPriority": 1,
+				"keywords": ["Smoke"],
+				"specialText": "",
+				"weapons": ["Royal Navy Depth Charge"]
+			},
+			{
+				"name": "Vosper Type 2 MTB",
+				"factions": [
+					{
+						"name": "Royal Navy",
+						"rank": 11
+					}
+				],
+				"options": [],
+				"points": 20,
+				"models": 1,
+				"commissiondate": 1945,
+				"movement": 7,
+				"armor": 4,
+				"aabattery": 1,
+				"torpedoes": 2,
+				"sortPriority": 1,
+				"keywords": ["Smoke"],
+				"specialText": "",
+				"weapons": ["Royal Navy Depth Charge","Light Guns"]
+			}
+		],
+		"aircraftType": [
+			{
+				"name": "Non-Carrier Assigned Aircraft",
+				"unlimited": false,
+				"limit": 1,
+				"specialText": "",
+				"decreaseModelCount": 1,
+				"factions": [
+					{
+						"name": "Imperial Japanese Navy"
+					},
+					{
+						"name": "The Kriegsmarine"
+					},
+					{
+						"name": "Marine Nationale"
+					},
+					{
+						"name": "Regia Marina"
+					},
+					{
+						"name": "Royal Navy"
+					},
+					{
+						"name": "United States Navy"
+					}
+				],
+				"points": 0,
+				"models": 0
+			}
+		],
+		"aircraft": [
+			{
+				"name": "Blackburn Roc",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 5,
+				"models": 1,
+				"commissiondate": 1940,
+				"flightspeed": 15,
+				"dogfight": -1,
+				"damagedice": 0,
+				"sortPriority": 1,
+				"options": [],
+				"keywords": ["Carrier Flight","Fighter"],
+				"specialText": "Carrier Based Fighter",
+				"weapons": []
+			},
+			{
+				"name": "Blackburn Skua II (F)",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 15,
+				"models": 1,
+				"commissiondate": 1938,
+				"flightspeed": 16,
+				"dogfight": 0,
+				"damagedice": 0,
+				"sortPriority": 1,
+				"options": [],
+				"keywords": ["Carrier Flight","Fighter"],
+				"specialText": "Carrier Based Fighter",
+				"weapons": []
+			},
+			{
+				"name": "Fairey Firefly I (F)",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 20,
+				"models": 1,
+				"commissiondate": 1943,
+				"flightspeed": 23,
+				"dogfight": 2,
+				"damagedice": 0,
+				"localQuantityDisplay": [
+					{
+						"key": "speed",
+						"property": "Flank Speed",
+						"quantity": 0
+					}
+				],
+				"sortPriority": 1,
+				"options": [],
+				"keywords": ["Carrier Flight","Fighter"],
+				"specialText": "Carrier Based Fighter",
+				"weapons": []
+			},
+			{
+				"name": "Fairey Fulmar I/II (F)",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 15,
+				"models": 1,
+				"commissiondate": 1940,
+				"flightspeed": 17,
+				"dogfight": 1,
+				"damagedice": 0,
+				"sortPriority": 1,
+				"options": [],
+				"keywords": ["Carrier Flight","Fighter"],
+				"specialText": "Carrier Based Fighter",
+				"weapons": []
+			},
+			{
+				"name": "Gloster Gladiator I",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 10,
+				"models": 1,
+				"commissiondate": 1939,
+				"flightspeed": 18,
+				"dogfight": 0,
+				"damagedice": 0,
+				"sortPriority": 1,
+				"options": [],
+				"keywords": ["Carrier Flight","Fighter"],
+				"specialText": "Carrier Based Fighter",
+				"weapons": []
+			},
+			{
+				"name": "Grumman Martlet II (F)",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 20,
+				"models": 1,
+				"commissiondate": 1941,
+				"flightspeed": 21,
+				"dogfight": 2,
+				"damagedice": 0,
+				"sortPriority": 1,
+				"options": [],
+				"keywords": ["Carrier Flight","Tough"],
+				"specialText": "",
+				"weapons": []
+			},
+			{
+				"name": "Hawker Sea Hurricane I/II (F)",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 20,
+				"models": 1,
+				"commissiondate": 1941,
+				"flightspeed": 22,
+				"dogfight": 2,
+				"damagedice": 0,
+				"sortPriority": 1,
+				"options": [],
+				"keywords": ["Carrier Flight","Fighter"],
+				"specialText": "Carrier Based Fighter",
+				"weapons": []
+			},
+			{
+				"name": "Supermarine Seafire IIC (F)",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 25,
+				"models": 1,
+				"commissiondate": 1942,
+				"flightspeed": 26,
+				"dogfight": 3,
+				"damagedice": 0,
+				"sortPriority": 1,
+				"options": [],
+				"keywords": ["Carrier Flight","Fighter"],
+				"specialText": "Carrier Based Fighter",
+				"weapons": []
+			},
+			{
+				"name": "Fairey Albacore (B)",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 10,
+				"models": 1,
+				"commissiondate": 1940,
+				"flightspeed": 12,
+				"dogfight": -2,
+				"damagedice": 3,
+				"sortPriority": 2,
+				"options": [],
+				"keywords": ["Carrier Flight","Bomber"],
+				"specialText": "Carrier Based Bomber",
+				"weapons": []
+			},
+			{
+				"name": "Fairey Albacore (TB)",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 10,
+				"models": 1,
+				"commissiondate": 1940,
+				"flightspeed": 12,
+				"dogfight": -2,
+				"damagedice": 4,
+				"sortPriority": 4,
+				"options": [],
+				"keywords": ["Carrier Flight","Torpedo-Bomber","Devastating"],
+				"specialText": "Carrier Based Torpedo-Bomber",
+				"weapons": []
+			},
+			{
+				"name": "Fairey Firefly (B)",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 10,
+				"models": 1,
+				"commissiondate": 1943,
+				"flightspeed": 23,
+				"dogfight": 1,
+				"damagedice": 2,
+				"sortPriority": 2,
+				"options": [],
+				"keywords": ["Carrier Flight","Bomber"],
+				"specialText": "Carrier Based Bomber",
+				"weapons": []
+			},
+			{
+				"name": "Fairey Fulmar I/II (B)",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 15,
+				"models": 1,
+				"commissiondate": 1940,
+				"flightspeed": 17,
+				"dogfight": 0,
+				"damagedice": 1,
+				"sortPriority": 2,
+				"options": [],
+				"keywords": ["Carrier Flight","Bomber"],
+				"specialText": "Carrier Based Bomber",
+				"weapons": []
+			},
+			{
+				"name": "Fairey Swordfish I (B)",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 10,
+				"models": 1,
+				"commissiondate": 1936,
+				"flightspeed": 10,
+				"dogfight": -2,
+				"damagedice": 3,
+				"sortPriority": 2,
+				"options": [],
+				"keywords": ["Carrier Flight","Bomber"],
+				"specialText": "Carrier Based Bomber",
+				"weapons": []
+			},
+			{
+				"name": "Fairey Swordfish I (TB)",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 10,
+				"models": 1,
+				"commissiondate": 1936,
+				"flightspeed": 10,
+				"dogfight": -2,
+				"damagedice": 4,
+				"sortPriority": 4,
+				"options": [],
+				"keywords": ["Carrier Flight","Torpedo-Bomber","Devastating"],
+				"specialText": "Carrier Based Torpedo-Bomber",
+				"weapons": []
+			},
+			{
+				"name": "Fairey Swordfish I (A)",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 10,
+				"models": 1,
+				"commissiondate": 1936,
+				"flightspeed": 10,
+				"dogfight": -2,
+				"damagedice": 0,
+				"sortPriority": 6,
+				"options": [],
+				"keywords": ["Carrier Flight","ASW"],
+				"specialText": "Carrier Based ASW",
+				"weapons": []
+			},
+			{
+				"name": "Grumman Martlet II (B)",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 20,
+				"models": 1,
+				"commissiondate": 1941,
+				"flightspeed": 21,
+				"dogfight": 1,
+				"damagedice": 1,
+				"sortPriority": 2,
+				"options": [],
+				"keywords": ["Carrier Flight","Bomber","Tough"],
+				"specialText": "Carrier Based Bomber",
+				"weapons": []
+			},
+			{
+				"name": "Hawker Sea Hurricane I/II (B)",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 20,
+				"models": 1,
+				"commissiondate": 1941,
+				"flightspeed": 22,
+				"dogfight": 1,
+				"damagedice": 1,
+				"sortPriority": 2,
+				"options": [],
+				"keywords": ["Carrier Flight","Bomber"],
+				"specialText": "Carrier Based Bomber",
+				"weapons": []
+			},
+			{
+				"name": "Supermarine Seafire IIC (B)",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 25,
+				"models": 1,
+				"commissiondate": 1942,
+				"flightspeed": 26,
+				"dogfight": 2,
+				"damagedice": 1,
+				"sortPriority": 2,
+				"options": [],
+				"keywords": ["Carrier Flight","Bomber"],
+				"specialText": "Carrier Based Bomber",
+				"weapons": []
+			},
+			{
+				"name": "Blackburn Skua II (DB)",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 15,
+				"models": 1,
+				"commissiondate": 1938,
+				"flightspeed": 16,
+				"dogfight": -1,
+				"damagedice": 1,
+				"sortPriority": 3,
+				"options": [],
+				"keywords": ["Carrier Flight","Dive-Bomber","Devastating"],
+				"specialText": "Carrier Based Dive-Bomber",
+				"weapons": []
+			},
+			{
+				"name": "Fairey Barracuda II (DB)",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 20,
+				"models": 1,
+				"commissiondate": 1943,
+				"flightspeed": 16,
+				"dogfight": -1,
+				"damagedice": 4,
+				"sortPriority": 3,
+				"options": [],
+				"keywords": ["Carrier Flight","Dive-Bomber","Devastating"],
+				"specialText": "Carrier Based Dive-Bomber",
+				"weapons": []
+			},
+			{
+				"name": "Fairey Barracuda II (TB)",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 20,
+				"models": 1,
+				"commissiondate": 1943,
+				"flightspeed": 16,
+				"dogfight": -1,
+				"damagedice": 4,
+				"sortPriority": 4,
+				"options": [],
+				"keywords": ["Carrier Flight","Torpedo-Bomber","Devastating"],
+				"specialText": "Carrier Based Torpedo-Bomber",
+				"weapons": []
+			},
+			{
+				"name": "Fairey Barracuda II (A)",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 20,
+				"models": 1,
+				"commissiondate": 1943,
+				"flightspeed": 16,
+				"dogfight": -1,
+				"damagedice": 0,
+				"sortPriority": 4,
+				"options": [],
+				"keywords": ["Carrier Flight","ASW"],
+				"specialText": "Carrier Based ASW",
+				"weapons": []
+			},
+			{
+				"name": "Hawker Typhon I",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 20,
+				"models": 1,
+				"commissiondate": 1941,
+				"flightspeed": 29,
+				"dogfight": 3,
+				"damagedice": 0,
+				"sortPriority": 8,
+				"options": [],
+				"keywords": ["Ground Based","Tough","Fighter"],
+				"specialText": "Ground Based Fighter",
+				"weapons": []
+			},
+			{
+				"name": "Bistol Beaufighter IC (1941)",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 15,
+				"models": 1,
+				"commissiondate": 1941,
+				"flightspeed": 21,
+				"dogfight": -1,
+				"damagedice": 2,
+				"sortPriority": 9,
+				"options": [],
+				"keywords": ["Ground Based","Bomber","Tough"],
+				"specialText": "Ground Based Bomber",
+				"weapons": []
+			},
+			{
+				"name": "Bistol Beaufighter IC (1943)",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 15,
+				"models": 1,
+				"commissiondate": 1943,
+				"flightspeed": 21,
+				"dogfight": -1,
+				"damagedice": 3,
+				"sortPriority": 9,
+				"options": [],
+				"keywords": ["Ground Based","Bomber","Tough"],
+				"specialText": "Ground Based Bomber",
+				"weapons": []
+			},
+			{
+				"name": "Bistol Beaufighter VIC",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 15,
+				"models": 1,
+				"commissiondate": 1943,
+				"flightspeed": 21,
+				"dogfight": -1,
+				"damagedice": 4,
+				"sortPriority": 11,
+				"options": [],
+				"keywords": ["Ground Based","Torpedo-Bomber","Devastating","Tough"],
+				"specialText": "Ground Based Torpedo-Bomber",
+				"weapons": []
+			},
+			{
+				"name": "Hawker Typhoon IB",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 25,
+				"models": 1,
+				"commissiondate": 1942,
+				"flightspeed": 29,
+				"dogfight": 2,
+				"damagedice": 4,
+				"sortPriority": 9,
+				"options": [],
+				"keywords": ["Ground Based","Bomber","Tough"],
+				"specialText": "Ground Based Bomber",
+				"weapons": []
+			},
+			{
+				"name": "Short Sunderland (B)",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 20,
+				"models": 1,
+				"commissiondate": 1938,
+				"flightspeed": 13,
+				"dogfight": -3,
+				"damagedice": 4,
+				"sortPriority": 9,
+				"options": [],
+				"keywords": ["Ground Based","Bomber","Tough","Large"],
+				"specialText": "Ground Based Bomber",
+				"weapons": []
+			},
+			{
+				"name": "Short Sunderland (A)",
+				"factions": [],
+				"availableIn": [
+					{
+						"all": [{ "in": "Non-Carrier Assigned Aircraft" }, { "in": "Royal Navy" }]			
+					}
+				],
+				"points": 20,
+				"models": 1,
+				"commissiondate": 1938,
+				"flightspeed": 13,
+				"dogfight": -3,
+				"damagedice": 0,
+				"sortPriority": 13,
+				"options": [],
+				"keywords": ["Ground Based","ASW","Tough","Large"],
+				"specialText": "Ground Based ASW",
+				"weapons": []
+			}
+		]
+	}
+}
