@@ -417,20 +417,7 @@
 				]
 			}
 		],
-		"weapons": [
-			{
-				"name": "A Turret",
-				"firearc": 0,
-				"pointblank": 0,
-				"short": 0,
-				"long": 0,
-				"extreme": 0,
-				"attackdice": 0,
-				"armorpen": 0,
-				"damagedice": 0,
-				"specialText": "-"
-			}
-		],
+		"weapons": [],
 		"keywords": [
 			{
 				"name": "---",
